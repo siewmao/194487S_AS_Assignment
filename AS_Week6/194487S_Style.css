@@ -1,0 +1,24 @@
+﻿a {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    background-image: url("194487S_Images/backgroundcoverpage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 97vw;
+    height: 107vh;
+    background-image: url("194487S_Images/content.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
