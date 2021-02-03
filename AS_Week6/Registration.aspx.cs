@@ -104,12 +104,14 @@ namespace AS_Week6
         {
             Boolean JS_emailavailable = false;
             String mycon = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename =| DataDirectory |\MYDB.mdf; Initial Catalog = MYDB; Integrated Security = True";
-            String myquery = "Select * from JSDatabase where EmailAddress='" + JS_tbEmailAddr.Text + "'";
+            String myquery = "Select * from JSDatabase where EmailAddress= @email";
             using (SqlConnection con = new SqlConnection(MYDBConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO JSDatabase VALUES(@FirstName, @LastName, @CreditCardInfo, @EmailAddress, @PasswordHash, @PasswordSalt, @DOB, @DateTimeRegistered, @EmailVerified, @IV, @Key, @attemptcounter, @lockoutduration)"))
                 {
+                    cmd.Parameters.AddWithValue("@email", JS_tbEmailAddr.Text.Trim());
                     cmd.CommandText = myquery;
+                    
                     cmd.Connection = con;
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
